@@ -57,6 +57,207 @@ export default function Home() {
     element.current.style.animationIterationCount = iterationCount;
   }
 
+  ///// USE EFFECT ON SCROLL
+  useEffect(() => {
+
+    const handleResize = () => {
+      setInitWindowHeight(window.innerHeight);
+      setInitWindowWidth(window.innerWidth);
+    }
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      const beeTopPosition = 120
+      const dynamicElementTopPosition = 190;
+      const dynamicElementLeftPosition = 5;
+
+      /////// FIRST WAY Left -> Right
+      if (scrollY < windowWidth) {
+
+        // RESET DYNAMIC LOGOS
+        resetElement(dynamicElement);
+
+        // BEE EFFECTS
+        moveBee(1, scrollY, beeTopPosition);
+      }
+
+      /////// FIRST WAY BACK Right -> Left
+      else if (scrollY >= windowWidth && scrollY < (windowWidth * 2) - 100) {
+
+        // RESET STATIC LOGOS
+        resetElement(staticLogos1);
+
+        // BEE EFFECTS
+        moveBee(-1, windowWidth - (scrollY - windowWidth), beeTopPosition);
+
+        // ANIMATED LOGO EFFECTS
+        moveElement("/logos-x3-1.png", -1, windowWidth - (scrollY - windowWidth) + dynamicElementLeftPosition, dynamicElementTopPosition);
+      }
+
+      /////// SECOND WAY Left -> Right
+      else if (scrollY >= (windowWidth * 2) && scrollY < (windowWidth * 3)) {
+
+        // BEE EFFECTS
+        moveBee(1, scrollY - (windowWidth * 2), 120);
+
+        // STATIC LOGO EFFECTS
+        showElement(staticLogos1, 100, 220);
+
+        // ANIMATED LOGO EFFECTS
+        resetElement(dynamicElement)
+      }
+
+      /////// SECOND WAY BACK Right -> Left
+      else if (scrollY >= (windowWidth * 3) && scrollY < (windowWidth * 4) - 100) {
+
+        // RESET STATIC LOGOS AND IMAGES
+        resetElement(staticLogos2);
+        resetElement(bee2Img);
+
+        // BEE EFFECTS
+        moveBee(-1, windowWidth - (scrollY - windowWidth * 3), 120);
+
+        // ANIMATED LOGO EFFECTS
+        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, 220, '/logos-x3-2.png', 80);
+        moveElement("/logos-x3-2.png", -1, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, dynamicElementTopPosition);
+      }
+
+      /////// THIRD WAY Left -> Right
+      else if (scrollY >= (windowWidth * 4) && scrollY < (windowWidth * 5) - 100) {
+
+        // BEE EFFECTS
+        moveBee(1, scrollY - (windowWidth * 4), beeTopPosition);
+
+        // STATIC LOGO EFFECTS
+        showElement(staticLogos2, 160, 215);
+        showElement(bee2Img, 170, 50);
+
+        // ANIMATED LOGO EFFECTS
+        resetElement(dynamicElement)
+      }
+
+      /////// THIRD WAY BACK Right -> Left
+      else if (scrollY >= (windowWidth * 5) && scrollY < (windowWidth * 6) - 100) {
+
+        // RESET STATIC LOGOS AND IMAGES
+        resetElement(staticLogos3);
+        resetElement(bee3Img);
+
+        // BEE EFFECTS
+        moveBee(-1, windowWidth - (scrollY - windowWidth * 5), 120);
+
+        // ANIMATED LOGO EFFECTS
+        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, 220, '/logos-x3-3.png', 80);
+        moveElement("/logos-x3-3.png", -1, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, dynamicElementTopPosition);
+      }
+
+      /////// FOURTH WAY Left -> Right
+      else if (scrollY >= (windowWidth * 6) && scrollY < (windowWidth * 7) - 100) {
+
+        // BEE EFFECTS
+        moveBee(1, scrollY - (windowWidth * 6), beeTopPosition);
+
+        // STATIC LOGO EFFECTS
+        showElement(staticLogos3, 130, 180);
+
+        // ANIMATED LOGO EFFECTS
+        resetElement(dynamicElement)
+      }
+
+      /////// FOURTH WAY BACK Right -> Left
+      else if (scrollY >= (windowWidth * 7) && scrollY < (windowWidth * 8) - 100) {
+        // RESET STATIC LOGOS AND IMAGES
+        resetElement(staticBoard1);
+        resetElement(bee3Img);
+
+        // BEE EFFECTS
+        moveBee(-1, windowWidth - (scrollY - windowWidth * 7), 120);
+
+        // ANIMATED LOGO EFFECTS
+        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 7), 220, '/board-skills-1.png', 200);
+        moveElement("/board-skills-1.png", -1, windowWidth - (scrollY - windowWidth * 7) - 50, dynamicElementTopPosition);
+      }
+
+      /////// FIFTH WAY Left -> Right
+      else if (scrollY >= (windowWidth * 8) && scrollY < (windowWidth * 8) + (windowWidth / 3)) {
+        // BEE EFFECTS
+        moveBee(1, scrollY - (windowWidth * 8), windowHeight - 180);
+
+        // STATIC LOGO EFFECTS
+        showElement(staticBoard1, 50, 350);
+        showElement(bee3Img, 0, 210);
+
+        // ANIMATED LOGO EFFECTS
+        resetElement(dynamicElement)
+      }
+
+      /////// FIFTH WAY BACK Right -> Left
+      else if (scrollY >= (windowWidth * 8) + (windowWidth / 3) && scrollY < (windowWidth * 8) + (windowWidth / 2) + 50) {
+
+        // RESET STATIC LOGOS AND IMAGES
+        resetElement(staticPanel1);
+
+        // BEE EFFECTS
+        moveBee(1, scrollY - (windowWidth * 8), windowHeight - 180);
+
+        // STATIC LOGO EFFECTS
+        showElement(staticBoard1, 50, 350);
+        showElement(bee3Img, 0, 210);
+
+        // ANIMATED LOGO EFFECTS
+        resetElement(dynamicElement)
+      }
+
+      /////// SIXTH WAY Left -> Right
+      else if (scrollY >= (windowWidth * 8) + (windowWidth / 3) && scrollY < (windowWidth * 8) + ((windowWidth / 3) * 2) + 50) {
+        // RESET STATIC LOGOS AND IMAGES
+        resetElement(staticPanel2);
+
+        // BEE EFFECTS
+        moveBee(1, scrollY - (windowWidth * 8), windowHeight - 180);
+
+        // STATIC LOGO EFFECTS
+        showElement(staticPanel1, 280, 290);
+
+      }
+
+      /////// SIXTH WAY BACK Right -> Left
+      else if (scrollY >= (windowWidth * 8) + ((windowWidth / 3 * 2)) && scrollY < (windowWidth * 9) - 200) {
+        // RESET STATIC LOGOS AND IMAGES
+        resetElement(buttonRef);
+        beeImg.current.style.animationName = 'none';
+
+        // BEE EFFECTS
+        moveBee(1, scrollY - (windowWidth * 8), windowHeight - 180);
+
+        // STATIC LOGO EFFECTS
+        showElement(staticPanel2, 520, 320);
+
+      }
+
+      /////// SEVENTH WAY Left -> Right
+      else if (scrollY >= (windowWidth * 9) - 200 && scrollY < (windowWidth * 9)) {
+        // BEE EFFECTS
+        animateElement(beeImg, 'beeAnimation', '4s', 'infinite');
+        beeImg.current.style.transform = `scaleX(-1)`;
+
+        // CONTACT BUTTON
+        showElement(buttonRef, windowWidth / 3, windowHeight / 3);
+      }
+    }
+
+    // INIT
+    handleResize();
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <main className="bg-grass w-full h-[10000px] overflow-hidden">
