@@ -34,7 +34,11 @@ body {
 }
 
 .title__custom {
-  @apply absolute z-20 text-center px-5 text-4xl drop-shadow-2xl text-white font-bold
+  @apply absolute z-20 flex flex-col text-center px-5 text-4xl drop-shadow-2xl text-white font-bold
+}
+
+.subtitle__custom {
+  @apply text-xl text-orange-500
 }
 
 @keyframes arrowAnimarion {
@@ -79,5 +83,28 @@ body {
   100% {
     transform: translateY(0) translateX(0) scaleX(-1);
     ;
+  }
+}
+
+@keyframes beehiveAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  20% {
+    transform: scale(1.05);
+  }
+
+  50% {
+    transform: scale(0.95);
+
+  }
+
+  70% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

@@ -24,12 +24,13 @@ export default function Home() {
   const staticPanel1 = useRef(null);
   const staticPanel2 = useRef(null);
 
+
+  // Functions
   const getWindowsSize = () => {
     const { innerWidth: width, innerHeight: height } = window;
     return { width, height, ratio: width / height };
   }
 
-  // Functions
   const moveBee = (direction, positionX, positionY) => {
     beeImg.current.style.position = "fixed";
     beeImg.current.style.top = `${positionY}px`;
@@ -62,7 +63,7 @@ export default function Home() {
     element.current.style.animationIterationCount = iterationCount;
   }
 
-  ///// USE EFFECT ON SCROLL
+  ///// UseEffect to handle scroll
   useEffect(() => {
 
     const handleScroll = () => {
@@ -79,47 +80,47 @@ export default function Home() {
         // RESET DYNAMIC LOGOS
         resetElement(dynamicElement);
 
-        // BEE EFFECTS
+        // Bee effects
         moveBee(1, scrollY, beeTopPosition);
       }
 
       /////// FIRST WAY BACK Right -> Left
       else if (scrollY >= windowWidth && scrollY < (windowWidth * 2) - 100) {
 
-        // RESET STATIC LOGOS
+        // Reset static elements
         resetElement(staticLogos1);
 
-        // BEE EFFECTS
+        // Bee effects
         moveBee(-1, windowWidth - (scrollY - windowWidth), beeTopPosition);
 
-        // ANIMATED LOGO EFFECTS
+        // Animated element effects
         moveElement("/images/logos-x3-1.png", -1, windowWidth - (scrollY - windowWidth) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
 
       /////// SECOND WAY Left -> Right
       else if (scrollY >= (windowWidth * 2) && scrollY < (windowWidth * 3)) {
 
-        // BEE EFFECTS
+        // Bee effects
         moveBee(1, scrollY - (windowWidth * 2), 120);
 
-        // STATIC LOGO EFFECTS
+        // Static elements effects
         showElement(staticLogos1, 100, 220);
 
-        // ANIMATED LOGO EFFECTS
+        // Animated element effects
         resetElement(dynamicElement)
       }
 
       /////// SECOND WAY BACK Right -> Left
       else if (scrollY >= (windowWidth * 3) && scrollY < (windowWidth * 4) - 100) {
 
-        // RESET STATIC LOGOS AND IMAGES
+        // Reset static elements
         resetElement(staticLogos2);
         resetElement(bee2Img);
 
-        // BEE EFFECTS
+        // Bee effects
         moveBee(-1, windowWidth - (scrollY - windowWidth * 3), 120);
 
-        // ANIMATED LOGO EFFECTS
+        // Animated element effects
         showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, 220, '/images/logos-x3-2.png', 80);
         moveElement("/images/logos-x3-2.png", -1, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
@@ -127,28 +128,28 @@ export default function Home() {
       /////// THIRD WAY Left -> Right
       else if (scrollY >= (windowWidth * 4) && scrollY < (windowWidth * 5) - 100) {
 
-        // BEE EFFECTS
+        // Bee effects
         moveBee(1, scrollY - (windowWidth * 4), beeTopPosition);
 
-        // STATIC LOGO EFFECTS
+        // Static elements effects
         showElement(staticLogos2, 160, 215);
         showElement(bee2Img, 170, 50);
 
-        // ANIMATED LOGO EFFECTS
+        // Animated element effects
         resetElement(dynamicElement)
       }
 
       /////// THIRD WAY BACK Right -> Left
       else if (scrollY >= (windowWidth * 5) && scrollY < (windowWidth * 6) - 100) {
 
-        // RESET STATIC LOGOS AND IMAGES
+        // Reset static elements
         resetElement(staticLogos3);
         resetElement(bee3Img);
 
-        // BEE EFFECTS
+        // Bee effects
         moveBee(-1, windowWidth - (scrollY - windowWidth * 5), 120);
 
-        // ANIMATED LOGO EFFECTS
+        // Animated element effects
         showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, 220, '/images/logos-x3-3.png', 80);
         moveElement("/images/logos-x3-3.png", -1, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
@@ -156,85 +157,87 @@ export default function Home() {
       /////// FOURTH WAY Left -> Right
       else if (scrollY >= (windowWidth * 6) && scrollY < (windowWidth * 7) - 100) {
 
-        // BEE EFFECTS
+        // Bee effects
         moveBee(1, scrollY - (windowWidth * 6), beeTopPosition);
 
-        // STATIC LOGO EFFECTS
+        // Static elements effects
         showElement(staticLogos3, 130, 180);
 
-        // ANIMATED LOGO EFFECTS
+        // Animated element effects
         resetElement(dynamicElement)
       }
 
       /////// FOURTH WAY BACK Right -> Left
       else if (scrollY >= (windowWidth * 7) && scrollY < (windowWidth * 8) - 100) {
-        // RESET STATIC LOGOS AND IMAGES
+        // Reset static elements
         resetElement(staticBoard1);
         resetElement(bee3Img);
 
-        // BEE EFFECTS
+        // Bee effects
         moveBee(-1, windowWidth - (scrollY - windowWidth * 7), 120);
 
-        // ANIMATED LOGO EFFECTS
+        // Animated element effects
         showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 7), 220, '/images/board-skills-1.png', 200);
         moveElement("/images/board-skills-1.png", -1, windowWidth - (scrollY - windowWidth * 7) - 50, dynamicElementTopPosition);
       }
 
       /////// FIFTH WAY Left -> Right
       else if (scrollY >= (windowWidth * 8) && scrollY < (windowWidth * 8) + (windowWidth / 3)) {
-        // BEE EFFECTS
+        // Bee effects
         moveBee(1, scrollY - (windowWidth * 8), windowHeight - 180);
 
-        // STATIC LOGO EFFECTS
+        // Static elements effects
         showElement(staticBoard1, 50, 350);
         showElement(bee3Img, 0, 210);
 
-        // ANIMATED LOGO EFFECTS
+        // Animated element effects
         resetElement(dynamicElement)
       }
 
       /////// FIFTH WAY BACK Right -> Left
       else if (scrollY >= (windowWidth * 8) + (windowWidth / 3) && scrollY < (windowWidth * 8) + (windowWidth / 2) + 50) {
 
-        // RESET STATIC LOGOS AND IMAGES
+        // Reset static elements
         resetElement(staticPanel1);
 
-        // BEE EFFECTS
+        // Bee effects
         moveBee(1, scrollY - (windowWidth * 8), windowHeight - 180);
 
-        // STATIC LOGO EFFECTS
+        // Static elements effects
         showElement(staticBoard1, 50, 350);
         showElement(bee3Img, 0, 210);
 
-        // ANIMATED LOGO EFFECTS
+        // Animated element effects
         resetElement(dynamicElement)
       }
 
       /////// SIXTH WAY PART 1 Left -> Right
       else if (scrollY >= (windowWidth * 8) + (windowWidth / 3) && scrollY < (windowWidth * 8) + ((windowWidth / 3) * 2) + 50) {
-        // RESET STATIC LOGOS AND IMAGES
+        // Reset static elements
         resetElement(staticPanel2);
         resetElement(buttonRef);
 
-        // BEE EFFECTS
+        // Bee effects
         moveBee(1, scrollY - (windowWidth * 8), windowHeight - 180);
+        animateElement(beeImg, 'none', '0s', 'none');
 
-        // STATIC LOGO EFFECTS
-        showElement(staticPanel1, windowWidth / 10, windowHeight - 200);
+        // Static elements effects
+        showElement(staticPanel1, windowWidth / 10, windowHeight <= 400 ? windowHeight - 150 : windowHeight - 200);
       }
 
       /////// SIXTH WAY PART 2 Left -> Right
       else if (scrollY >= (windowWidth * 8) + ((windowWidth / 3) * 2) + 50 && scrollY < (windowWidth * 9)) {
-        // BEE EFFECTS
+        // Bee effects
         animateElement(beeImg, 'beeAnimation', '4s', 'infinite');
         beeImg.current.style.transform = `scaleX(-1)`;
-        showElement(staticPanel2, (windowWidth <= 400 ? windowWidth / 10 : windowWidth / 5) + 100, windowHeight - 180);
-        // CONTACT BUTTON
-        showElement(buttonRef, windowWidth / 3, windowHeight / 3);
+
+        // Static elements effects
+        showElement(staticPanel2, (windowWidth <= 400 ? (windowWidth / 10) + 30 : windowWidth <= 850 ? (windowWidth / 5) + 100 : windowWidth / 4) + 100, windowHeight <= 400 ? windowHeight - 80 : windowHeight - 180);
+        showElement(buttonRef, ((windowWidth / 3) * 2) > 600 ? windowWidth / 2 : (windowWidth / 3) * 2, windowHeight / 3);
       }
     }
 
-    // INIT WINDOW SIZE
+    // Init window size
     setInitWindow(getWindowsSize());
     window.scrollTo(0, 0);
 
@@ -251,14 +254,27 @@ export default function Home() {
         {(initWindow.width && initWindow.height) && <>
 
           {/**** Texts */}
-          <h1 className="title__custom" style={{ top: `${initWindow.height / 2}px` }}>
-            <span className="uppercase">Sylvain Langot</span><br />
+          <h1 className="title__custom" style={{ top: `${initWindow.height / 2}px`, zIndex: 70 }}>
+            <span className="uppercase">Sylvain Langot</span>
+            <span className="subtitle__custom">Jeune abeille cherchant une ruche</span>
             Développeur FullStack
           </h1>
-          <h1 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 2)}px` }}>React / Next.js / TypeScript</h1>
-          <h1 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 4)}px` }}>Node.js / MySQL / TailwindCSS</h1>
-          <h1 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 6)}px` }}>Git / GitHub / BitBucket</h1>
-          <h1 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 8)}px` }}>Méthode Agile / Clean Code</h1>
+          <h2 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 2)}px` }}>
+            <span className="subtitle__custom">Butinant avec </span>
+            React / Next.js / TypeScript
+          </h2>
+          <h2 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 4)}px` }}>
+            <span className="subtitle__custom">Pollinisant avec </span>
+            Node.js / MySQL / TailwindCSS
+          </h2>
+          <h2 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 6)}px` }}>
+            <span className="subtitle__custom">Se nourrissant avec </span>
+            Git / GitHub / BitBucket
+          </h2>
+          <h2 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 8)}px` }}>
+            <span className="subtitle__custom">Récoltant avec </span>
+            Méthode Agile / Clean Code
+          </h2>
 
 
           {/**** Hive */}
@@ -331,7 +347,7 @@ export default function Home() {
           {/* Second x3 static logos ; Node.js, MySQL, TailWind */}
           <Image className="fixed hidden z-[29]"
             ref={staticLogos2}
-            src='/logos-x3-2.png'
+            src='/images/logos-x3-2.png'
             width={60}
             height={60}
             alt='node tailwind mysql logo'
@@ -340,7 +356,7 @@ export default function Home() {
           {/* Third x3 static logos ; Git, GitHub, BitBucket */}
           <Image className="fixed hidden z-[28]"
             ref={staticLogos3}
-            src='/logos-x3-3.png'
+            src='/images/logos-x3-3.png'
             width={60}
             height={60}
             alt='git github bitbucket logo'
@@ -349,7 +365,7 @@ export default function Home() {
           {/* Wood suspended board with x3 static skills ; Agile method, clean code, Jira and Notion */}
           <Image className="fixed hidden z-[40]"
             ref={staticBoard1}
-            src='/board-skills-1.png'
+            src='/images/board-skills-1.png'
             width={200}
             height={0}
             alt='Agile method, clean code, Jira and Notion'
@@ -359,7 +375,7 @@ export default function Home() {
           <Image className="fixed hidden z-40"
             style={{ width: `${(initWindow.width / 4) >= 200 ? 200 : initWindow.width / 4}px` }}
             ref={staticPanel1}
-            src='/panel-1.png'
+            src='/images/panel-1.png'
             width={200}
             height={0}
             alt='Adaptation, bienveillance, volontaire'
@@ -369,24 +385,18 @@ export default function Home() {
           <Image className="fixed hidden z-40"
             style={{ width: `${(initWindow.width / 4) >= 200 ? 200 : initWindow.width / 4}px` }}
             ref={staticPanel2}
-            src='/panel-2.png'
+            src='/images/panel-2.png'
             width={200}
             height={0}
             alt='Motivé, joie de vivre, curieux'
           />
 
           {/* Contact button */}
-          <button className="fixed hidden z-50 top-10 right-10 bg-white text-black px-4 py-2 rounded-lg" ref={buttonRef}>Contact</button>
-
-          {/* *** BG with treee
-          <Image
-            src='/bg-1.jpg'
-            alt='hill'
-            className="fixed top-0 w-auto object-fill object-center h-full blur-[1px] brightness-75"
-            width={0}
-            height={0}
-            sizes="100vw"
-          /> */}
+          <div className="flex items-center justify-center w-full h-full">
+            <a href='mailto:langot.sylvain.contact@gmail.com'>
+              <button className="fixed hidden z-50 px-3 bg-white font-bold text-orange-500 bg-transparent w-[120px] h-[120px] rounded-lg" style={{ backgroundColor: 'transparent', backgroundImage: 'url(/images/hive-btn-1-min.png)', backgroundSize: 'cover', animation: 'beehiveAnimation 5s linear infinite' }} ref={buttonRef}>Me contacter</button>
+            </a>
+          </div>
 
           {/**** Grass */}
           <div
