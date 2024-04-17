@@ -34,7 +34,7 @@ body {
 }
 
 .title__custom {
-  @apply left-1/2 text-4xl drop-shadow-2xl text-white font-bold
+  @apply absolute z-20 text-center px-5 text-4xl drop-shadow-2xl text-white font-bold
 }
 
 @keyframes arrowAnimarion {

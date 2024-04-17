@@ -8,8 +8,8 @@ import Image from "next/image";
 import { FaArrowDownLong } from "react-icons/fa6";
 
 export default function Home() {
-  const [initWindowWidth, setInitWindowWidth] = useState(0);
-  const [initWindowHeight, setInitWindowHeight] = useState(0);
+  const defaultWindowSize = { width: null, height: null, ratio: null };
+  const [initWindow, setInitWindow] = useState(defaultWindowSize);
 
   // Refs
   const beeImg = useRef(null);
@@ -23,6 +23,11 @@ export default function Home() {
   const staticLogos3 = useRef(null);
   const staticPanel1 = useRef(null);
   const staticPanel2 = useRef(null);
+
+  const getWindowsSize = () => {
+    const { innerWidth: width, innerHeight: height } = window;
+    return { width, height, ratio: width / height };
+  }
 
   // Functions
   const moveBee = (direction, positionX, positionY) => {
@@ -60,11 +65,6 @@ export default function Home() {
   ///// USE EFFECT ON SCROLL
   useEffect(() => {
 
-    const handleResize = () => {
-      setInitWindowHeight(window.innerHeight);
-      setInitWindowWidth(window.innerWidth);
-    }
-
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowWidth = window.innerWidth;
@@ -93,7 +93,7 @@ export default function Home() {
         moveBee(-1, windowWidth - (scrollY - windowWidth), beeTopPosition);
 
         // ANIMATED LOGO EFFECTS
-        moveElement("/logos-x3-1.png", -1, windowWidth - (scrollY - windowWidth) + dynamicElementLeftPosition, dynamicElementTopPosition);
+        moveElement("/images/logos-x3-1.png", -1, windowWidth - (scrollY - windowWidth) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
 
       /////// SECOND WAY Left -> Right
@@ -120,8 +120,8 @@ export default function Home() {
         moveBee(-1, windowWidth - (scrollY - windowWidth * 3), 120);
 
         // ANIMATED LOGO EFFECTS
-        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, 220, '/logos-x3-2.png', 80);
-        moveElement("/logos-x3-2.png", -1, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, dynamicElementTopPosition);
+        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, 220, '/images/logos-x3-2.png', 80);
+        moveElement("/images/logos-x3-2.png", -1, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
 
       /////// THIRD WAY Left -> Right
@@ -149,8 +149,8 @@ export default function Home() {
         moveBee(-1, windowWidth - (scrollY - windowWidth * 5), 120);
 
         // ANIMATED LOGO EFFECTS
-        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, 220, '/logos-x3-3.png', 80);
-        moveElement("/logos-x3-3.png", -1, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, dynamicElementTopPosition);
+        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, 220, '/images/logos-x3-3.png', 80);
+        moveElement("/images/logos-x3-3.png", -1, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
 
       /////// FOURTH WAY Left -> Right
@@ -176,8 +176,8 @@ export default function Home() {
         moveBee(-1, windowWidth - (scrollY - windowWidth * 7), 120);
 
         // ANIMATED LOGO EFFECTS
-        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 7), 220, '/board-skills-1.png', 200);
-        moveElement("/board-skills-1.png", -1, windowWidth - (scrollY - windowWidth * 7) - 50, dynamicElementTopPosition);
+        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 7), 220, '/images/board-skills-1.png', 200);
+        moveElement("/images/board-skills-1.png", -1, windowWidth - (scrollY - windowWidth * 7) - 50, dynamicElementTopPosition);
       }
 
       /////// FIFTH WAY Left -> Right
@@ -210,67 +210,55 @@ export default function Home() {
         resetElement(dynamicElement)
       }
 
-      /////// SIXTH WAY Left -> Right
+      /////// SIXTH WAY PART 1 Left -> Right
       else if (scrollY >= (windowWidth * 8) + (windowWidth / 3) && scrollY < (windowWidth * 8) + ((windowWidth / 3) * 2) + 50) {
         // RESET STATIC LOGOS AND IMAGES
         resetElement(staticPanel2);
-
-        // BEE EFFECTS
-        moveBee(1, scrollY - (windowWidth * 8), windowHeight - 180);
-
-        // STATIC LOGO EFFECTS
-        showElement(staticPanel1, 280, 290);
-
-      }
-
-      /////// SIXTH WAY BACK Right -> Left
-      else if (scrollY >= (windowWidth * 8) + ((windowWidth / 3 * 2)) && scrollY < (windowWidth * 9) - 200) {
-        // RESET STATIC LOGOS AND IMAGES
         resetElement(buttonRef);
-        beeImg.current.style.animationName = 'none';
 
         // BEE EFFECTS
         moveBee(1, scrollY - (windowWidth * 8), windowHeight - 180);
 
         // STATIC LOGO EFFECTS
-        showElement(staticPanel2, 520, 320);
-
+        showElement(staticPanel1, windowWidth / 10, windowHeight - 200);
       }
 
-      /////// SEVENTH WAY Left -> Right
-      else if (scrollY >= (windowWidth * 9) - 200 && scrollY < (windowWidth * 9)) {
+      /////// SIXTH WAY PART 2 Left -> Right
+      else if (scrollY >= (windowWidth * 8) + ((windowWidth / 3) * 2) + 50 && scrollY < (windowWidth * 9)) {
         // BEE EFFECTS
         animateElement(beeImg, 'beeAnimation', '4s', 'infinite');
         beeImg.current.style.transform = `scaleX(-1)`;
-
+        showElement(staticPanel2, (windowWidth <= 400 ? windowWidth / 10 : windowWidth / 5) + 100, windowHeight - 180);
         // CONTACT BUTTON
         showElement(buttonRef, windowWidth / 3, windowHeight / 3);
       }
     }
 
-    // INIT
-    handleResize();
+    // INIT WINDOW SIZE
+    setInitWindow(getWindowsSize());
+    window.scrollTo(0, 0);
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
-    <main className="bg-grass w-full h-[10000px] overflow-hidden">
-      <div className="relative w-full h-[auto] bg-grass">
-        {(initWindowWidth > 0 && initWindowHeight > 0) && <>
+    <main className="relative bg-grass w-full h-[15000px] overflow-hidden">
+      <div className="flex items-center justify-center relative w-full h-full" style={{ backgroundImage: 'url(/images/bg-1-sm-2.jpg)', backgroundSize: 'cover', backgroundAttachment: 'fixed' }}>
+        {(initWindow.width && initWindow.height) && <>
 
           {/**** Texts */}
-          <h1 className={`absolute z-50 top-${initWindowHeight}px title__custom`}>Sylvain Langot</h1>
-          <h1 className={`absolute z-50 top-[${(window.innerHeight * 2) + 200}px] title__custom`}>Développeur FullStack</h1>
-          <h1 className="absolute z-50 top-[2300px] title__custom">React / Next.js / TypeScript</h1>
-          <h1 className="absolute z-50 top-[3300px] title__custom">Node.js / MySQL / TailwindCSS</h1>
-          <h1 className="absolute z-50 top-[4300px] title__custom">Git / GitHub / BitBucket</h1>
-          <h1 className="absolute z-50 top-[5300px] title__custom">Méthode Agile / Clean Code</h1>
+          <h1 className="title__custom" style={{ top: `${initWindow.height / 2}px` }}>
+            <span className="uppercase">Sylvain Langot</span><br />
+            Développeur FullStack
+          </h1>
+          <h1 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 2)}px` }}>React / Next.js / TypeScript</h1>
+          <h1 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 4)}px` }}>Node.js / MySQL / TailwindCSS</h1>
+          <h1 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 6)}px` }}>Git / GitHub / BitBucket</h1>
+          <h1 className="title__custom" style={{ top: `${(initWindow.height * initWindow.ratio * 8)}px` }}>Méthode Agile / Clean Code</h1>
 
 
           {/**** Hive */}
@@ -334,7 +322,7 @@ export default function Home() {
           {/* First x3 static logos ; React, Next.js, TypeScript */}
           <Image className="fixed hidden z-30"
             ref={staticLogos1}
-            src='/logos-x3-1.png'
+            src='/images/logos-x3-1.png'
             width={60}
             height={60}
             alt='react next ts logo'
@@ -368,7 +356,8 @@ export default function Home() {
           />
 
           {/* First panel with x3 static skills ;  "Adaptation, bienveillance, volontaire" */}
-          <Image className="fixed hidden z-[40]"
+          <Image className="fixed hidden z-40"
+            style={{ width: `${(initWindow.width / 4) >= 200 ? 200 : initWindow.width / 4}px` }}
             ref={staticPanel1}
             src='/panel-1.png'
             width={200}
@@ -377,7 +366,8 @@ export default function Home() {
           />
 
           {/* Second panel with x3 static skills ;  "Motivé, joie de vivre, curieux" */}
-          <Image className="fixed hidden z-[40]"
+          <Image className="fixed hidden z-40"
+            style={{ width: `${(initWindow.width / 4) >= 200 ? 200 : initWindow.width / 4}px` }}
             ref={staticPanel2}
             src='/panel-2.png'
             width={200}
@@ -386,24 +376,22 @@ export default function Home() {
           />
 
           {/* Contact button */}
-          <div className="fixed hidden z-50 top-10 right-10" ref={buttonRef}>
-            <button className="bg-white text-black px-4 py-2 rounded-lg">Contact</button>
-          </div>
+          <button className="fixed hidden z-50 top-10 right-10 bg-white text-black px-4 py-2 rounded-lg" ref={buttonRef}>Contact</button>
 
-          {/**** BG with treee */}
+          {/* *** BG with treee
           <Image
             src='/bg-1.jpg'
             alt='hill'
-            className="fixed top-0 w-auto bg-cover aspect-auto blur-[1px] brightness-75"
+            className="fixed top-0 w-auto object-fill object-center h-full blur-[1px] brightness-75"
             width={0}
             height={0}
             sizes="100vw"
-          />
+          /> */}
 
           {/**** Grass */}
           <div
             className="fixed z-30 bottom-0 w-full h-52 bg-cover bg-repeat-x"
-            style={{ backgroundImage: `url('/grass-flower-1.png')` }}
+            style={{ backgroundImage: `url('/images/grass-flower-1.png')` }}
           />
 
           {/**** Scroll arrow */}
