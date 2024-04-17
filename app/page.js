@@ -289,14 +289,14 @@ export default function Home() {
           <div className="relative">
             <Image
               className="fixed z-20 top-10 -left-[60px] w-auto h-auto scale-x-[-1]"
-              src='/hive-2-abbeal.png'
+              src='/images/hive-2-abbeal.png'
               alt='hive with logo'
               width={300}
               height={300}
             />
             <Image
               className="fixed z-40 top-10 -left-[60px] w-auto h-auto scale-x-[-1]"
-              src='/hive-layout-1.png'
+              src='/images/hive-layout-1.png'
               alt='hive'
               width={300}
               height={300}
@@ -304,21 +304,21 @@ export default function Home() {
             <Image className="fixed z-10 left-[100px] top-[250px] w-auto h-auto"
               width={100}
               height={100}
-              src='/rope.png'
+              src='/images/rope.png'
               alt='rope'
             />
             <Image className="fixed z-40 left-[170px] top-[50px] w-auto h-auto scale-x-[-1] hidden"
               ref={bee2Img}
               width={100}
               height={100}
-              src='/bee-2.png'
+              src='/images/bee-2.png'
               alt='bee 2'
             />
             <Image className="fixed z-40 left-[0px] top-[220px] w-auto h-auto hidden"
               ref={bee3Img}
               width={100}
               height={100}
-              src='/bee-3.png'
+              src='/images/bee-3.png'
               alt='bee 3'
             />
           </div>
@@ -328,7 +328,7 @@ export default function Home() {
             ref={beeImg}
             width={100}
             height={100}
-            src='/bee-1-sm-2.png'
+            src='/images/bee-1-sm-2.png'
             alt='bee'
             id='bee-img'
           />
