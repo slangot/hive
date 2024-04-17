@@ -10,6 +10,7 @@ import { FaArrowDownLong } from "react-icons/fa6";
 export default function Home() {
   const defaultWindowSize = { width: null, height: null, ratio: null };
   const [initWindow, setInitWindow] = useState(defaultWindowSize);
+  const [showModal, setShowModal] = useState(true);
 
   // Refs
   const beeImg = useRef(null);
@@ -250,6 +251,13 @@ export default function Home() {
 
   return (
     <main className="relative bg-grass w-full h-[15000px] overflow-hidden">
+      {showModal && <div className="fixed z-[100] flex items-center justify-center w-full h-full bg-black bg-opacity-50">
+        <div className="flex flex-col items-center justify-center p-4 mx-4 bg-white rounded-lg">
+          <h2 className="text-3xl font-bold text-center text-black mb-4">Projet pour rejoindre la ruche Abbeal</h2>
+          <p className="text-lg text-black">Il vous faudra défiler vers le bas pour faire apparaître les éléments au fur et à mesure.</p>
+          <button onClick={() => setShowModal(false)} className="px-4 py-2 mt-4 bg-orange-500 text-white font-bold rounded-lg">D'accord</button>
+        </div>
+      </div>}
       <div className="flex items-center justify-center relative w-full h-full" style={{ backgroundImage: 'url(/images/bg-1-sm-2.jpg)', backgroundSize: 'cover', backgroundAttachment: 'fixed' }}>
         {(initWindow.width && initWindow.height) && <>
 
