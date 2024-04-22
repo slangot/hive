@@ -117,8 +117,8 @@ export default function Home() {
         moveBee(-1, windowWidth - (scrollY - windowWidth), beeTopPosition);
 
         // Animated element effects
-        // moveElement("/static/images/logos-x3-1.png", -1, windowWidth - (scrollY - windowWidth) + dynamicElementLeftPosition, dynamicElementTopPosition);
-        moveElement(logosX3_1, -1, windowWidth - (scrollY - windowWidth) + dynamicElementLeftPosition, dynamicElementTopPosition);
+        moveElement("/logos-x3-1.png", -1, windowWidth - (scrollY - windowWidth) + dynamicElementLeftPosition, dynamicElementTopPosition);
+        // moveElement(logosX3_1, -1, windowWidth - (scrollY - windowWidth) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
 
       /////// SECOND WAY Left -> Right
@@ -145,10 +145,10 @@ export default function Home() {
         moveBee(-1, windowWidth - (scrollY - windowWidth * 3), 120);
 
         // Animated element effects
-        // showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, 220, "/static/images/logos-x3-2.png", 80);
-        // moveElement("/static/images/logos-x3-2.png", -1, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, dynamicElementTopPosition);
-        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, 220, logosX3_2, 80);
-        moveElement(logosX3_2, -1, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, dynamicElementTopPosition);
+        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, 220, "/logos-x3-2.png", 80);
+        moveElement("/logos-x3-2.png", -1, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, dynamicElementTopPosition);
+        // showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, 220, logosX3_2, 80);
+        // moveElement(logosX3_2, -1, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
 
       /////// THIRD WAY Left -> Right
@@ -176,10 +176,10 @@ export default function Home() {
         moveBee(-1, windowWidth - (scrollY - windowWidth * 5), 120);
 
         // Animated element effects
-        // showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, 220, "/static/images/logos-x3-3.png", 80);
-        // moveElement("/static/images/logos-x3-3.png", -1, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, dynamicElementTopPosition);
-        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, 220, logosX3_3, 80);
-        moveElement(logosX3_3, -1, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, dynamicElementTopPosition);
+        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, 220, "/logos-x3-3.png", 80);
+        moveElement("/logos-x3-3.png", -1, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, dynamicElementTopPosition);
+        // showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, 220, logosX3_3, 80);
+        // moveElement(logosX3_3, -1, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
 
       /////// FOURTH WAY Left -> Right
@@ -205,10 +205,10 @@ export default function Home() {
         moveBee(-1, windowWidth - (scrollY - windowWidth * 7), 120);
 
         // Animated element effects
-        // showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 7), 220, "/static/images/board-skills-1.png", 200);
-        // moveElement("/static/images/board-skills-1.png", -1, windowWidth - (scrollY - windowWidth * 7) - 50, dynamicElementTopPosition);
-        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 7), 220, boardSkills1, 200);
-        moveElement(boardSkills1, -1, windowWidth - (scrollY - windowWidth * 7) - 50, dynamicElementTopPosition);
+        showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 7), 220, "/board-skills-1.png", 200);
+        moveElement("/board-skills-1.png", -1, windowWidth - (scrollY - windowWidth * 7) - 50, dynamicElementTopPosition);
+        // showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 7), 220, boardSkills1, 200);
+        // moveElement(boardSkills1, -1, windowWidth - (scrollY - windowWidth * 7) - 50, dynamicElementTopPosition);
       }
 
       /////// FIFTH WAY Left -> Right
