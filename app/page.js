@@ -262,8 +262,8 @@ export default function Home() {
           <button onClick={() => setShowModal(false)} className="px-4 py-2 mt-4 bg-orange-500 text-white font-bold rounded-lg">D'accord</button>
         </div>
       </div>}
-      <div className="flex items-center justify-center relative w-full h-full" style={{ backgroundImage: "url(/static/images/bg-1-sm-2.jpg)", backgroundSize: "cover", backgroundAttachment: "fixed" }}>
-        {(initWindow.width && initWindow.height) && <>
+      {(initWindow.width && initWindow.height) && <>
+        <div className="flex items-center justify-center relative w-full" style={{ backgroundImage: "url(/static/images/bg-1-sm-2.jpg)", backgroundSize: "cover", backgroundAttachment: "fixed", height: "100%" }}>
 
           {/**** Texts */}
           <h1 className="title__custom" style={{ top: `${initWindow.height / 2}px`, zIndex: 70 }}>
@@ -427,8 +427,8 @@ export default function Home() {
             <p className="-rotate-90 text-white drop-shadow-3xl">scroll</p>
             <FaArrowDownLong className="z-50 text-white drop-shadow-3xl custom__arrow" width={100} height={100} />
           </div>
-        </>}
-      </div>
+        </div>
+      </>}
     </main>
   );
 }
