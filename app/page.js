@@ -5,11 +5,8 @@ import React, { useEffect, useRef, useState } from "react";
 import bee1 from "../public/bee-1-sm-2.png";
 import bee2 from "../public/bee-2.png";
 import bee3 from "../public/bee-3.png";
-import bg1Sm2 from "../public/bg-1-sm-2.jpg";
 import boardSkills1 from "../public/board-skills-1.png";
-import grassFlower1 from "../public/grass-flower-1.png";
 import hiveAbbeal from "../public/hive-2-abbeal.png";
-import hiveBtn1 from "../public/hive-btn-1-min.png";
 import hiveLayout from "../public/hive-layout-2.png";
 import logosX3_1 from "../public/logos-x3-1.png";
 import logosX3_2 from "../public/logos-x3-2.png";
@@ -17,7 +14,6 @@ import logosX3_3 from "../public/logos-x3-3.png";
 import panel1 from "../public/panel-1.png";
 import panel2 from "../public/panel-2.png";
 import rope from "../public/rope.png";
-
 
 // next
 import Image from "next/image";
@@ -55,10 +51,6 @@ export default function Home() {
     beeImg.current.style.top = `${positionY}px`;
     beeImg.current.style.left = `${positionX}px`;
     beeImg.current.style.transform = `scaleX(${direction})`;
-    // beeImg.current.className = "fixed";
-    // beeImg.current.className = `top-[${positionY}px]`;
-    // beeImg.current.className = `left-[${positionX}px]`;
-    // beeImg.current.className = `scale-x-[${direction}]`;
   }
 
   const moveElement = (element, direction, positionX, positionY) => {
@@ -118,7 +110,6 @@ export default function Home() {
 
         // Animated element effects
         moveElement("/logos-x3-1.png", -1, windowWidth - (scrollY - windowWidth) + dynamicElementLeftPosition, dynamicElementTopPosition);
-        // moveElement(logosX3_1, -1, windowWidth - (scrollY - windowWidth) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
 
       /////// SECOND WAY Left -> Right
@@ -147,8 +138,6 @@ export default function Home() {
         // Animated element effects
         showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, 220, "/logos-x3-2.png", 80);
         moveElement("/logos-x3-2.png", -1, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, dynamicElementTopPosition);
-        // showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, 220, logosX3_2, 80);
-        // moveElement(logosX3_2, -1, windowWidth - (scrollY - windowWidth * 3) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
 
       /////// THIRD WAY Left -> Right
@@ -178,8 +167,6 @@ export default function Home() {
         // Animated element effects
         showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, 220, "/logos-x3-3.png", 80);
         moveElement("/logos-x3-3.png", -1, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, dynamicElementTopPosition);
-        // showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, 220, logosX3_3, 80);
-        // moveElement(logosX3_3, -1, windowWidth - (scrollY - windowWidth * 5) + dynamicElementLeftPosition, dynamicElementTopPosition);
       }
 
       /////// FOURTH WAY Left -> Right
@@ -207,8 +194,6 @@ export default function Home() {
         // Animated element effects
         showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 7), 220, "/board-skills-1.png", 200);
         moveElement("/board-skills-1.png", -1, windowWidth - (scrollY - windowWidth * 7) - 50, dynamicElementTopPosition);
-        // showElement(dynamicElement, windowWidth - (scrollY - windowWidth * 7), 220, boardSkills1, 200);
-        // moveElement(boardSkills1, -1, windowWidth - (scrollY - windowWidth * 7) - 50, dynamicElementTopPosition);
       }
 
       /////// FIFTH WAY Left -> Right
@@ -288,7 +273,6 @@ export default function Home() {
         </div>
       </div>}
       {(initWindow.width && initWindow.height) && <>
-        {/* <div className="flex items-center justify-center relative w-full" style={{ backgroundImage: "url(/static/images/bg-1-sm-2.jpg)", backgroundSize: "cover", backgroundAttachment: "fixed", height: "100%" }}> */}
         <div className="flex items-center justify-center relative w-full" style={{ backgroundImage: `url(/bg-1-sm-2.jpg)`, backgroundSize: "cover", backgroundAttachment: "fixed", height: "100%" }}>
 
           {/**** Texts */}
@@ -320,7 +304,6 @@ export default function Home() {
 
             <Image
               className="fixed z-20 top-10 -left-[60px] scale-x-[-1]"
-              // src="/static/images/hive-2-abbeal.png"
               src={hiveAbbeal}
               alt="hive with logo"
               width={300}
@@ -329,7 +312,6 @@ export default function Home() {
 
             <Image
               className="fixed z-40 top-10 -left-[60px] scale-x-[-1]"
-              // src="/static/images/hive-layout-2.png"
               src={hiveLayout}
               alt="hive"
               width={300}
@@ -339,7 +321,6 @@ export default function Home() {
             <Image className="fixed z-10 left-[100px] top-[250px]"
               width={100}
               height={100}
-              // src="/static/images/rope.png"
               src={rope}
               alt="rope"
             />
@@ -348,7 +329,6 @@ export default function Home() {
               ref={bee2Img}
               width={100}
               height={100}
-              // src="/static/images/bee-2.png"
               src={bee2}
               alt="bee 2"
             />
@@ -357,7 +337,6 @@ export default function Home() {
               ref={bee3Img}
               width={100}
               height={100}
-              // src="/static/images/bee-3.png"
               src={bee3}
               alt="bee 3"
             />
@@ -369,7 +348,6 @@ export default function Home() {
             ref={beeImg}
             width={100}
             height={100}
-            // src="/static/images/bee-1-sm-2.png"
             src={bee1}
             alt="bee"
             id="bee-img"
@@ -388,7 +366,6 @@ export default function Home() {
           {/* First x3 static logos ; React, Next.js, TypeScript */}
           <Image className="fixed hidden z-30"
             ref={staticLogos1}
-            // src="/static/images/logos-x3-1.png"
             src={logosX3_1}
             width={60}
             height={60}
@@ -398,7 +375,6 @@ export default function Home() {
           {/* Second x3 static logos ; Node.js, MySQL, TailWind */}
           <Image className="fixed hidden z-[29]"
             ref={staticLogos2}
-            // src="/static/images/logos-x3-2.png"
             src={logosX3_2}
             width={60}
             height={60}
@@ -408,7 +384,6 @@ export default function Home() {
           {/* Third x3 static logos ; Git, GitHub, BitBucket */}
           <Image className="fixed hidden z-[28]"
             ref={staticLogos3}
-            // src="/static/images/logos-x3-3.png"
             src={logosX3_3}
             width={60}
             height={60}
@@ -418,7 +393,6 @@ export default function Home() {
           {/* Wood suspended board with x3 static skills ; Agile method, clean code, Jira and Notion */}
           <Image className="fixed hidden z-[40]"
             ref={staticBoard1}
-            // src='/static/images/board-skills-1.png'
             src={boardSkills1}
             width={200}
             height={0}
@@ -429,7 +403,6 @@ export default function Home() {
           <Image className="fixed hidden z-40"
             style={{ width: `${(initWindow.width / 4) >= 200 ? 200 : initWindow.width / 4}px` }}
             ref={staticPanel1}
-            // src='/static/images/panel-1.png'
             src={panel1}
             width={200}
             height={0}
@@ -440,7 +413,6 @@ export default function Home() {
           <Image className="fixed hidden z-40"
             style={{ width: `${(initWindow.width / 4) >= 200 ? 200 : initWindow.width / 4}px` }}
             ref={staticPanel2}
-            // src='/static/images/panel-2.png'
             src={panel2}
             width={200}
             height={0}
@@ -450,7 +422,6 @@ export default function Home() {
           {/* Contact button */}
           <div className="flex items-center justify-center w-full h-full">
             <a href='mailto:langot.sylvain.contact@gmail.com'>
-              {/* <button className="fixed hidden z-50 px-3 bg-white font-bold text-orange-500 bg-transparent w-[120px] h-[120px] rounded-lg" style={{ backgroundColor: 'transparent', backgroundImage: 'url(/static/images/hive-btn-1-min.png)', backgroundSize: 'cover', animation: 'beehiveAnimation 5s linear infinite' }} ref={buttonRef}>Me contacter</button> */}
               <button className="fixed hidden z-50 px-3 bg-white font-bold text-orange-500 bg-transparent w-[120px] h-[120px] rounded-lg" style={{ backgroundColor: 'transparent', backgroundImage: `url(/hive-btn-1-min.png)`, backgroundSize: 'cover', animation: 'beehiveAnimation 5s linear infinite' }} ref={buttonRef}>Me contacter</button>
             </a>
           </div>
@@ -458,7 +429,6 @@ export default function Home() {
           {/**** Grass */}
           <div
             className="fixed z-30 bottom-0 w-full h-52 bg-cover bg-repeat-x"
-            // style={{ backgroundImage: `url('/static/images/grass-flower-1.png')` }}
             style={{ backgroundImage: `url(/grass-flower-1.png)` }}
           />
 
