@@ -294,7 +294,7 @@ export default function Home() {
 
             <img
               className="fixed z-20 top-10 -left-[60px] scale-x-[-1]"
-              src="/images/hive-2-abbeal.png"
+              src="/static/images/hive-2-abbeal.png"
               alt="hive with logo"
               width={300}
               height={300}
@@ -302,7 +302,7 @@ export default function Home() {
 
             <img
               className="fixed z-40 top-10 -left-[60px] scale-x-[-1]"
-              src="/hive-layout-2.png"
+              src="/static/images/hive-layout-2.png"
               alt="hive"
               width={300}
               height={300}
