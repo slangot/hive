@@ -37,6 +37,10 @@ export default function Home() {
     beeImg.current.style.top = `${positionY}px`;
     beeImg.current.style.left = `${positionX}px`;
     beeImg.current.style.transform = `scaleX(${direction})`;
+    // beeImg.current.className = "fixed";
+    // beeImg.current.className = `top-[${positionY}px]`;
+    // beeImg.current.className = `left-[${positionX}px]`;
+    // beeImg.current.className = `scale-x-[${direction}]`;
   }
 
   const moveElement = (element, direction, positionX, positionY) => {
@@ -105,7 +109,7 @@ export default function Home() {
         moveBee(1, scrollY - (windowWidth * 2), 120);
 
         // Static elements effects
-        showElement(staticLogos1, 100, 220);
+        showElement(staticLogos1, 90, 220);
 
         // Animated element effects
         resetElement(dynamicElement)
@@ -133,7 +137,7 @@ export default function Home() {
         moveBee(1, scrollY - (windowWidth * 4), beeTopPosition);
 
         // Static elements effects
-        showElement(staticLogos2, 160, 215);
+        showElement(staticLogos2, 150, 215);
         showElement(bee2Img, 170, 50);
 
         // Animated element effects
@@ -162,7 +166,7 @@ export default function Home() {
         moveBee(1, scrollY - (windowWidth * 6), beeTopPosition);
 
         // Static elements effects
-        showElement(staticLogos3, 130, 180);
+        showElement(staticLogos3, 120, 160);
 
         // Animated element effects
         resetElement(dynamicElement)
@@ -287,44 +291,50 @@ export default function Home() {
 
           {/**** Hive */}
           <div className="relative">
-            <Image
-              className="fixed z-20 top-10 -left-[60px] w-auto h-auto scale-x-[-1]"
+
+            <img
+              className="fixed z-20 top-10 -left-[60px] scale-x-[-1]"
               src="/static/images/hive-2-abbeal.png"
               alt="hive with logo"
               width={300}
               height={300}
             />
-            <Image
-              className="fixed z-40 top-10 -left-[60px] w-auto h-auto scale-x-[-1]"
-              src="/static/images/hive-layout-1.png"
+
+            <img
+              className="fixed z-40 top-10 -left-[60px] scale-x-[-1]"
+              src="/static/images/hive-layout-2.png"
               alt="hive"
               width={300}
               height={300}
             />
-            <Image className="fixed z-10 left-[100px] top-[250px] w-auto h-auto"
+
+            <img className="fixed z-10 left-[100px] top-[250px]"
               width={100}
               height={100}
               src="/static/images/rope.png"
               alt="rope"
             />
-            <Image className="fixed z-40 left-[170px] top-[50px] w-auto h-auto scale-x-[-1] hidden"
+
+            <img className="fixed z-40 left-[170px] top-[50px] scale-x-[-1] hidden"
               ref={bee2Img}
               width={100}
               height={100}
               src="/static/images/bee-2.png"
               alt="bee 2"
             />
-            <Image className="fixed z-40 left-[0px] top-[220px] w-auto h-auto hidden"
+
+            <img className="fixed z-40 left-[0px] top-[220px] hidden"
               ref={bee3Img}
               width={100}
               height={100}
               src="/static/images/bee-3.png"
               alt="bee 3"
             />
+
           </div>
 
           {/**** Dynmaic Bee */}
-          <Image className="fixed z-[60] top-[130px] object-contain"
+          <img className="fixed z-[60] top-[130px] object-contain"
             ref={beeImg}
             width={100}
             height={100}
@@ -334,7 +344,7 @@ export default function Home() {
           />
 
           {/**** Animated Element */}
-          <Image className="fixed z-50 hidden"
+          <img className="fixed z-50 hidden"
             ref={dynamicElement}
             src=""
             width={80}
@@ -344,7 +354,7 @@ export default function Home() {
 
           {/**** Static logos in the hive */}
           {/* First x3 static logos ; React, Next.js, TypeScript */}
-          <Image className="fixed hidden z-30"
+          <img className="fixed hidden z-30"
             ref={staticLogos1}
             src="/static/images/logos-x3-1.png"
             width={60}
@@ -353,7 +363,7 @@ export default function Home() {
           />
 
           {/* Second x3 static logos ; Node.js, MySQL, TailWind */}
-          <Image className="fixed hidden z-[29]"
+          <img className="fixed hidden z-[29]"
             ref={staticLogos2}
             src="/static/images/logos-x3-2.png"
             width={60}
@@ -362,7 +372,7 @@ export default function Home() {
           />
 
           {/* Third x3 static logos ; Git, GitHub, BitBucket */}
-          <Image className="fixed hidden z-[28]"
+          <img className="fixed hidden z-[28]"
             ref={staticLogos3}
             src="/static/images/logos-x3-3.png"
             width={60}
@@ -371,7 +381,7 @@ export default function Home() {
           />
 
           {/* Wood suspended board with x3 static skills ; Agile method, clean code, Jira and Notion */}
-          <Image className="fixed hidden z-[40]"
+          <img className="fixed hidden z-[40]"
             ref={staticBoard1}
             src='/static/images/board-skills-1.png'
             width={200}
@@ -380,7 +390,7 @@ export default function Home() {
           />
 
           {/* First panel with x3 static skills ;  "Adaptation, bienveillance, volontaire" */}
-          <Image className="fixed hidden z-40"
+          <img className="fixed hidden z-40"
             style={{ width: `${(initWindow.width / 4) >= 200 ? 200 : initWindow.width / 4}px` }}
             ref={staticPanel1}
             src='/static/images/panel-1.png'
@@ -390,7 +400,7 @@ export default function Home() {
           />
 
           {/* Second panel with x3 static skills ;  "Motivé, joie de vivre, curieux" */}
-          <Image className="fixed hidden z-40"
+          <img className="fixed hidden z-40"
             style={{ width: `${(initWindow.width / 4) >= 200 ? 200 : initWindow.width / 4}px` }}
             ref={staticPanel2}
             src='/static/images/panel-2.png'
